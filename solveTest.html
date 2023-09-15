@@ -176,6 +176,30 @@
 		}
 	});
 	
+	        var dependencies = {
+    "letter01": {next: 'W', dependsOn: null},
+    "letter02": {next: 'I', dependsOn: "letter13"},
+    "letter03": {next: 'L', dependsOn: "letter07"},
+    "letter04": {next: 'L', dependsOn: "letter11"},
+    "letter05": {next: 'S', dependsOn: "letter04"},
+    "letter06": {next: 'T', dependsOn: "letter15"},
+    "letter07": {next: 'D', dependsOn: "letter16"},
+    "letter08": {next: 'U', dependsOn: "letter01"},
+    "letter09": {next: 'M', dependsOn: "letter17"},
+    "letter10": {next: 'I', dependsOn: "letter05"},
+    "letter11": {next: 'C', dependsOn: "letter02"},
+    "letter12": {next: 'H', dependsOn: "letter08"},
+    "letter13": {next: 'H', dependsOn: "letter18"},
+    "letter14": {next: 'E', dependsOn: "letter01"},
+    "letter15": {next: 'I', dependsOn: "letter03"},
+    "letter16": {next: 'R', dependsOn: "letter10"},
+    "letter17": {next: 'A', dependsOn: "letter09"},
+    "letter18": {next: 'T', dependsOn: "letter19"},
+    "letter19": {next: 'E', dependsOn: "letter06"},
+    "letter20": {next: 'N', dependsOn: "letter12"}
+};
+	
+	
 	function revealLetterForCondition(conditionKey, letterId, revealedLetter) {
     if (localStorage.getItem(conditionKey) === "true") {
         var letter = document.getElementById(letterId);
@@ -295,28 +319,7 @@
 	
 	if(localStorage.getItem("allSolved") === "true") {
     document.addEventListener("DOMContentLoaded", function() {
-        var dependencies = {
-    "letter01": {next: 'W', dependsOn: null},
-    "letter02": {next: 'I', dependsOn: "letter13"},
-    "letter03": {next: 'L', dependsOn: "letter07"},
-    "letter04": {next: 'L', dependsOn: "letter11"},
-    "letter05": {next: 'S', dependsOn: "letter04"},
-    "letter06": {next: 'T', dependsOn: "letter15"},
-    "letter07": {next: 'D', dependsOn: "letter16"},
-    "letter08": {next: 'U', dependsOn: "letter01"},
-    "letter09": {next: 'M', dependsOn: "letter17"},
-    "letter10": {next: 'I', dependsOn: "letter05"},
-    "letter11": {next: 'C', dependsOn: "letter02"},
-    "letter12": {next: 'H', dependsOn: "letter08"},
-    "letter13": {next: 'H', dependsOn: "letter18"},
-    "letter14": {next: 'E', dependsOn: "letter01"},  // Es wurde keine Abhängigkeit angegeben, also ist es null
-    "letter15": {next: 'I', dependsOn: "letter03"},
-    "letter16": {next: 'R', dependsOn: "letter10"},
-    "letter17": {next: 'A', dependsOn: "letter09"},
-    "letter18": {next: 'T', dependsOn: "letter19"},
-    "letter19": {next: 'E', dependsOn: "letter06"},
-    "letter20": {next: 'N', dependsOn: "letter12"}
-};
+
 
         for (var letterId in dependencies) {
             (function(letterId) {

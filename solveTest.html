@@ -337,7 +337,8 @@
                             letterElement.classList.remove('mystery-letter-active');
                             letterElement.classList.add('mystery-letter-solved');
                             letterElement.removeEventListener('click', listener);
-                            countSolvedLetters();
+                            activateDependentLetters(letterId);  // Activate dependent letters
+							countSolvedLetters();
                         }
                     });
                 }
@@ -346,7 +347,16 @@
     });
 }
 
-	
+	function activateDependentLetters(solvedLetterId) {
+		for (var letterId in dependencies) {
+			var config = dependencies[letterId];
+			if (config.dependsOn === solvedLetterId) {
+				var letterElement = document.getElementById(letterId);
+				letterElement.classList.remove('revealed');
+				letterElement.classList.add('mystery-letter-active');
+			}
+		}
+	}
 	
 	function getNextLetter(letter) {
 		if (letter === 'A') {  // Falls der aktuelle Buchstabe Z ist, zum Anfang (A) zurückkehren

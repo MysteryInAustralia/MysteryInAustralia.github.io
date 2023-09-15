@@ -104,6 +104,22 @@
 		<a href="#">Terms and Conditions</a>
 	</div>
 </div>
+
+<div id="popupOverlay" class="popup-overlay">
+    <div class="popup-content">
+        <span class="popup-close-btn" onclick="closePopup()">&times;</span>
+        <p>You did it!<br>
+		   You really solved all the riddles and unlocked all letters!<br><br>
+		   Now to get to the final question you still need to decode the letters.<br>
+		   Our detective for recherche and archive developed a special tool and installed it on your phone.<br><br>
+		   All you need to do to decode the letters is click on each letter a few times.<br>
+		   The unlocking tool will then switch the letters and recognize once it is correct.<br>
+		   The letter will then change color and you will know it is decoded.<br>
+		  <span class="hash white">#</span><span class="hash red">#</span><span class="hash blue">#</span>
+			</p>
+    </div>
+</div>
+
 <script>
 	document.body.classList.remove("transition-background");
 
@@ -268,40 +284,52 @@
 		localStorage.getItem("cahill") === "true")
 	{
 		localStorage.setItem("allSolved", "true");
+		//openPopup();
+	}
+	
+	if(localStorage.getItem("allSolved") === "true")
+	{
+		openPopup();
 	}
 	
 	if(localStorage.getItem("allSolved") === "true")
 	{
 		document.addEventListener("DOMContentLoaded", function() {
 			var letterElement = document.getElementById("letter01");
+			letterElement.classList.remove('revealed');
+			letterElement.classList.add('mystery-letter-active');
 			letterElement.addEventListener("click", function() {
 				var currentLetter = letterElement.textContent;
 				var nextLetter = getNextLetter(currentLetter);
 				letterElement.textContent = nextLetter;
 				if (nextLetter === 'W') {
-					letterElement.classList.remove('revealed');
+					letterElement.classList.remove('mystery-letter-active');
 					letterElement.classList.add('mystery-letter-solved'); // Fügt die Klasse hinzu, die die Farbe ändert
 					letterElement.removeEventListener('click', arguments.callee); // Entfernt den Klick-Event-Listener
 					countSolvedLetters();
-					openPopup();
 				}
 			});
 		});
 		
-		document.addEventListener("DOMContentLoaded", function() {
-			var letterElement = document.getElementById("letter02");
-			letterElement.addEventListener("click", function() {
-				var currentLetter = letterElement.textContent;
-				var nextLetter = getNextLetter(currentLetter);
-				letterElement.textContent = nextLetter;
-				if (nextLetter === 'I') {
-					letterElement.classList.remove('revealed');
-					letterElement.classList.add('mystery-letter-solved'); // Fügt die Klasse hinzu, die die Farbe ändert
-					letterElement.removeEventListener('click', arguments.callee); // Entfernt den Klick-Event-Listener
-					countSolvedLetters();
-				}
+		if(document.getElementById("letter01").contains('mystery-letter-solved')
+		{
+			document.addEventListener("DOMContentLoaded", function() {
+				var letterElement = document.getElementById("letter02");
+				letterElement.classList.remove('revealed');
+				letterElement.classList.add('mystery-letter-active');
+				letterElement.addEventListener("click", function() {
+					var currentLetter = letterElement.textContent;
+					var nextLetter = getNextLetter(currentLetter);
+					letterElement.textContent = nextLetter;
+					if (nextLetter === 'I') {
+						letterElement.classList.remove('mystery-letter-active');
+						letterElement.classList.add('mystery-letter-solved'); // Fügt die Klasse hinzu, die die Farbe ändert
+						letterElement.removeEventListener('click', arguments.callee); // Entfernt den Klick-Event-Listener
+						countSolvedLetters();
+					}
+				});
 			});
-		});
+		}
 		
 		document.addEventListener("DOMContentLoaded", function() {
 			var letterElement = document.getElementById("letter03");
@@ -598,23 +626,8 @@
 	function closePopup() {
 		document.getElementById('popupOverlay').style.display = 'none';
 	}
-	
 </script>
 
-<div id="popupOverlay" class="popup-overlay">
-    <div class="popup-content">
-        <span class="popup-close-btn" onclick="closePopup()">&times;</span>
-        <p>Gday and SURPRISE, fellow junior-detective from Germany!<br>
-		   We are the <span class="hash white">#</span><span class="hash red">#</span><span class="hash blue">#</span> (Australian divison)<br><br>
-		   This was just a test to see if you really are detective-material.<br><br>
-		   We need you to travel through Sydney and to the Blue Mountains.<br><br>
-		   On your way you will find clues to unlock letters for our final question.<br>
-		   The letters alone won't make any sense, but in the end you can hopefully decode everything.<br>
-		   Once you travelled to all locations and unlocked all the letters, you can go to the final question.<br>
-		   Good luck!
-			</p>
-    </div>
-</div>
 
 </body>
 </html>

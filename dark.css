@@ -164,6 +164,10 @@ a[href^="https://www.google.com/maps"] {
     transition: color 0.3s;
 }
 
+.mystery-letter-active {
+	color: purple;
+}
+
 .mystery-letter.revealed {
     color: red; /* Farbe für freigelegte Buchstaben */
 }

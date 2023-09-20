@@ -200,6 +200,14 @@
 			 document.getElementById('originalStylesheet').setAttribute('disabled', true);
 		}
 	});
+
+        if(localStorage.getItem("elizabeth") == "true" &&
+	   localStorage.getItem("echoPoint") == "true" &&
+	   localStorage.getItem("cahill") == "true")
+	{
+	        openPopup();
+                document.getElementById('final1').style.display = 'block';
+	}
 	
 	//Color answered Links
 	if (localStorage.getItem("ww1") === "true")

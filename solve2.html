@@ -108,12 +108,19 @@
 <div id="popupOverlay" class="popup-overlay">
     <div class="popup-content">
         <span class="popup-close-btn" onclick="closePopup()">&times;</span>
-        <p>standard</p>
+        <p>You did it!<br>
+		   You really solved all the riddles and unlocked all letters!<br><br>
+		   Now to get to the final question you still need to decode the letters.<br>
+		   Our detective for recherche and archive developed a special tool and installed it on your phone.<br><br>
+		   All you need to do to decode the letters is click on each letter a few times.<br>
+		   The unlocking tool will then switch the letters and recognize once it is correct.<br>
+		   The letter will then change color and you will know it is decoded.<br>
+		  <span class="hash white">#</span><span class="hash red">#</span><span class="hash blue">#</span>
+			</p>
     </div>
 </div>
 
 <script>
-        var popupContent = document.querySelector('.popup-content p');
 	document.body.classList.remove("transition-background");
 
 	document.addEventListener('DOMContentLoaded', function() {
@@ -176,9 +183,7 @@
         letter.classList.add('revealed');
     }
 }
-	var finalMessage = 'You did it!<br>You really solved all the riddles and unlocked all letters!<br><br>Now to get to the final question you still need to decode the letters.<br>Our detective for recherche and archive developed a special tool and installed it on your phone.<br><br>All you need to do to decode the letters is click on each letter a few times.<br>The unlocking tool will then switch the letters and recognize once it is correct.<br>The letter will then change color and you will know it is decoded.<br><span class="hash white">#</span><span class="hash red">#</span><span class="hash blue">#</span>';
-        var final1Message = 'final1';
-
+	
 	//Color answered Links
 	if (localStorage.getItem("ww1") === "true")
 	{
@@ -282,14 +287,8 @@
 		//openPopup();
 	}
 	
-	if(localStorage.getItem("ww1") === "true")
+	if(localStorage.getItem("allSolved") === "true")
 	{
-                popupContent.innerHTML = finalMessage;
-		openPopup();
-	}
-	else if(localStorage.getItem("ww2") === "true")
-	{
-		popupContent.innerHTML = finalMessage;
 		openPopup();
 	}
 	

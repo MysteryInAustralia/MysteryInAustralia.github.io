@@ -128,9 +128,9 @@
 		
         if(userAnswer === correctAnswer) {
 			feedbackMessage.innerHTML = correctMessage;
-			if (localStorage.getItem("pet") !== "true") {
-				localStorage.setItem("pet", "true");
-				document.querySelector('.link-pet').classList.add('correct-link'); //Green Checkmark
+			if (localStorage.getItem("final1") !== "true") {
+				localStorage.setItem("final1", "true");
+				document.querySelector('.link-final1').classList.add('correct-link'); //Green Checkmark
 				//Check if conditions for dark mode are met
 				if (localStorage.getItem("ww1") === "true" &&
 				    localStorage.getItem("ww2") === "true" &&
@@ -163,7 +163,7 @@
 	
 	// Check if question answered already
 	document.addEventListener('DOMContentLoaded', function() {
-    if (localStorage.getItem("pet") === "true") {
+    if (localStorage.getItem("final1") === "true") {
         feedbackMessage.innerHTML = correctMessage;
     }
 	});

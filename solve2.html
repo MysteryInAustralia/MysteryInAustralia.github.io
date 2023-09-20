@@ -52,7 +52,7 @@
 		</div>
 
 		<div class="content-wrap">
-		 <h1>Final Question</h1> <!-- XXX --> 
+		 <h1>Final Questiorn</h1> <!-- XXX --> 
 			<!-- Bild für die Frage -->
 			<img src="pic/questionMark.jpg" alt="image" class="question-image" id="fullscreenImage"> <!-- XXX --> 
 			<br><br>
@@ -108,12 +108,12 @@
 <div id="popupOverlay" class="popup-overlay">
     <div class="popup-content">
         <span class="popup-close-btn" onclick="closePopup()">&times;</span>
-        <p></p>
+        <p>standard</p>
     </div>
 </div>
 
 <script>
-	openPopup();
+        var popupContent = document.querySelector('.popup-content p');
 	document.body.classList.remove("transition-background");
 
 	document.addEventListener('DOMContentLoaded', function() {
@@ -176,7 +176,9 @@
         letter.classList.add('revealed');
     }
 }
-	localStorage.setItem("final1" , "true");
+	var finalMessage = 'You did it!<br>You really solved all the riddles and unlocked all letters!<br><br>Now to get to the final question you still need to decode the letters.<br>Our detective for recherche and archive developed a special tool and installed it on your phone.<br><br>All you need to do to decode the letters is click on each letter a few times.<br>The unlocking tool will then switch the letters and recognize once it is correct.<br>The letter will then change color and you will know it is decoded.<br><span class="hash white">#</span><span class="hash red">#</span><span class="hash blue">#</span>';
+        var final1Message = 'final1';
+
 	//Color answered Links
 	if (localStorage.getItem("ww1") === "true")
 	{
@@ -259,8 +261,6 @@
 		revealLetterForCondition("cahill", "letter20", "Q");
 	}
 	
-	var popupContent = document.querySelector('.popup-content p');
-	
 	//Check if all is solved
 	if (localStorage.getItem("ww1") === "true" &&
 		localStorage.getItem("ww2") === "true" &&
@@ -281,22 +281,19 @@
 		localStorage.setItem("allSolved", "true");
 		//openPopup();
 	}
-	if(localStorage.getItem("final") === "true") 
-        {
-		popupContent.innerHTML = "You did it!<br>You really solved all the riddles and unlocked all letters!<br><br>Now to get to the final question you still need to decode the letters.<br>Our detective for recherche and archive developed a special tool and installed it on your phone.<br><br>All you need to do to decode the letters is click on each letter a few times.<br>The unlocking tool will then switch the letters and recognize once it is correct.<br>The letter will then change color and you will know it is decoded.";
-		localStorage.setItem("showPopup", "true");
-	} 
+	
 	if(localStorage.getItem("ww1") === "true")
 	{
-		popupContent.innerHTML = "final1";
-		localStorage.setItem("showPopup", "true");
+                popupContent.innerHTML = finalMessage;
 		openPopup();
 	}
-	if(localStorage.getItem("showPopup") === "true")
+	elseif(localStorage.getItem("ww2") === "true")
 	{
+		popupContent.innerHTML = finalMessage;
 		openPopup();
-	} 
-	if(localStorage.getItem("final") === "true")
+	}
+	
+	if(localStorage.getItem("allSolved") === "true")
 	{
 		document.addEventListener("DOMContentLoaded", function() {
 			var letterElement = document.getElementById("letter01");

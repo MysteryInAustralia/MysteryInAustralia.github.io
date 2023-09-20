@@ -217,6 +217,7 @@
 	   localStorage.getItem("echoPoint") == "true" &&
 	   localStorage.getItem("cahill") == "true")
 	{
+	        openPopup();
                 document.getElementById('final1').style.display = 'block';
 	}
 	
@@ -280,6 +281,10 @@
 	if (localStorage.getItem("cahill") === "true")
 	{
 		document.querySelector('.link-cahill').classList.add('correct-link'); //Green Checkmark
+	}
+
+	function openPopup() {
+		document.getElementById('popupOverlay').style.display = 'block';
 	}
 </script>
 

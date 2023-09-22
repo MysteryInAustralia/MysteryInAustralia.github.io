@@ -47,10 +47,10 @@
 				</div>
 			</div>
 			<div class="menu-item" id="final0" style="display:block;">
-                                <a href="/final0.html" class="menu-link">The Bench</a>
+                                <a href="/final0.html" class="menu-link link-final0">The Bench</a>
                         </div>
 			<div class="menu-item" id="final1" style="display:none;">
-                                <a href="/final1.html" class="menu-link">The Fountain</a>
+                                <a href="/final1.html" class="menu-link link-final1">The Fountain</a>
                         </div>
 			<div class="menu-item">
 				<a href="/solve.html" class="menu-link">Final Question</a>
@@ -133,6 +133,7 @@
         var userAnswer = document.getElementById("answer").value.toLowerCase();
 		
         if(userAnswer === correctAnswer) {
+		document.getElementById('final1').style.display = 'block';
 			feedbackMessage.innerHTML = correctMessage;
 			if (localStorage.getItem("final0") !== "true") {
 				localStorage.setItem("final0", "true");
@@ -171,6 +172,7 @@
 	document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem("final0") === "true") {
         feedbackMessage.innerHTML = correctMessage;
+	document.getElementById('final1').style.display = 'block';   
     }
 	});
 
@@ -265,6 +267,14 @@
 	if (localStorage.getItem("cahill") === "true")
 	{
 		document.querySelector('.link-cahill').classList.add('correct-link'); //Green Checkmark
+	}
+	if (localStorage.getItem("final0") === "true")
+	{
+		document.querySelector('.link-final0').classList.add('correct-link'); //Green Checkmark
+	}
+	if (localStorage.getItem("final1") === "true")
+	{
+		document.querySelector('.link-final1').classList.add('correct-link'); //Green Checkmark
 	}
 </script>
 

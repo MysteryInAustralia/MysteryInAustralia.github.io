@@ -69,8 +69,8 @@
 			
 				<!-- Frage -->  
 			<p class="question-text"> 
-				John Joseph Cahill, the 29th Premier of New South Wales, named this lookout after himself.<br> <!-- XXX --> 
-				But in what year did he do it?
+				Do you see the bench near the lighthouse?<br> <!-- XXX --> 
+				What is the full name of the person it was dedicated to?
 			</p>
 	
 			<!-- Ihr Formular -->
@@ -97,7 +97,7 @@
 </div>
 <script>
 	var correctMessage = "Correct! Well done! <br>The <strong>20</strong>th letter is <span class='highlight-letter'>Q</span>"; //XXX
-	var correctAnswer = "1959"; //XXX
+	var correctAnswer = "Bill banks"; //XXX
 
 	document.body.classList.remove("transition-background");
 
@@ -135,8 +135,8 @@
 		
         if(userAnswer === correctAnswer) {
 			feedbackMessage.innerHTML = correctMessage;
-			if (localStorage.getItem("cahill") !== "true") {
-				localStorage.setItem("cahill", "true");
+			if (localStorage.getItem("final0") !== "true") {
+				localStorage.setItem("final0", "true");
 				if(localStorage.getItem("elizabeth") == "true" &&
 	   localStorage.getItem("echoPoint") == "true" &&
 	   localStorage.getItem("cahill") == "true")

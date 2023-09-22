@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -45,22 +46,17 @@
 					<a href="/cahill.html" class="locked-link link-cahill">Cahill's Lookout</a>
 				</div>
 			</div>
-			<div class="menu-item" id="final0" style="display:none;">
-                                <a href="/final0.html" class="menu-link">The Bench</a>
-                        </div>
-			<div class="menu-item" id="final0" style="display:none;">
-                                <a href="/final0.html" class="menu-link">The Bench</a>
-                        </div>
+			
 			<div class="menu-item">
 				<a href="/solve.html" class="menu-link">Final Question</a>
 			</div>
 		</div>
 
 		<div class="content-wrap">
-		 <h1>The Bench</h1> <!-- XXX --> 
+		 <h1>The bench</h1> <!-- XXX --> 
 			<!-- Bild für die Frage -->
 			<img src="pic/questionMark.jpg" alt="image" class="question-image" id="fullscreenImage"> <!-- XXX --> 
-			<p class="image-credit">[Ref:013]</p> <!-- XXX -->
+			<p class="image-credit">[Ref:015]</p> <!-- XXX -->
 			
 			<!-- Koordinatenbox -->
 			<div class="coords-box">
@@ -92,12 +88,10 @@
 		<a href="/credits.html">Image Credits</a>
 		<a href="#">Terms and Conditions</a>
 	</div>
-
-
 </div>
 <script>
-	var correctMessage = "Correct! Well done! <br>The <strong>20</strong>th letter is <span class='highlight-letter'>Q</span>"; //XXX
-	var correctAnswer = "Bill banks"; //XXX
+	var correctMessage = "Correct! Well done! <br>"; //XXX
+	var correctAnswer = "bill banks"; //XXX
 
 	document.body.classList.remove("transition-background");
 
@@ -137,13 +131,6 @@
 			feedbackMessage.innerHTML = correctMessage;
 			if (localStorage.getItem("final0") !== "true") {
 				localStorage.setItem("final0", "true");
-				if(localStorage.getItem("elizabeth") == "true" &&
-	   localStorage.getItem("echoPoint") == "true" &&
-	   localStorage.getItem("cahill") == "true")
-	{
-                document.getElementById('final1').style.display = 'block';
-		openPopup();
-	}
 				document.querySelector('.link-final0').classList.add('correct-link'); //Green Checkmark
 				//Check if conditions for dark mode are met
 				if (localStorage.getItem("ww1") === "true" &&
@@ -160,9 +147,12 @@
 						//Transition to Black
 						document.body.style.transition = "background-color 6s";
 						
-						 // Zeigt die # Zeichen an
+						document.getElementById("hashNotification").style.display = "block"; // Zeigt die # Zeichen an
 						
-					 // 3000 Millisekunden = 3 Sekunden
+						// Optional: Nach ein paar Sekunden ausblenden
+						setTimeout(function() {
+							document.getElementById("hashNotification").style.display = "none";
+						}, 3000); // 3000 Millisekunden = 3 Sekunden
 						
 						
 						}
@@ -178,12 +168,7 @@
         feedbackMessage.innerHTML = correctMessage;
     }
 	});
-	
-        if(localStorage.getItem("final0") == "true")
-	{
-                document.getElementById('final1').style.display = 'block';
-		
-	}
+
 	//Hamburger Menu
 	document.addEventListener('DOMContentLoaded', function() 
 	{
@@ -214,8 +199,6 @@
 			 document.getElementById('originalStylesheet').setAttribute('disabled', true);
 		}
 	});
-
-        
 	
 	//Color answered Links
 	if (localStorage.getItem("ww1") === "true")
@@ -278,12 +261,6 @@
 	{
 		document.querySelector('.link-cahill').classList.add('correct-link'); //Green Checkmark
 	}
-function openPopup() {
-		document.getElementById('popupOverlay').style.display = 'block';
-	}
-function closePopup() {
-		document.getElementById('popupOverlay').style.display = 'none';
-	}	
 </script>
 
 

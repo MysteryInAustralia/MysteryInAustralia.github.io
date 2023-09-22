@@ -48,6 +48,9 @@
 			<div class="menu-item" id="final0" style="display:none;">
                                 <a href="/final0.html" class="menu-link">The Bench</a>
                         </div>
+			<div class="menu-item" id="final0" style="display:none;">
+                                <a href="/final0.html" class="menu-link">The Bench</a>
+                        </div>
 			<div class="menu-item">
 				<a href="/solve.html" class="menu-link">Final Question</a>
 			</div>
@@ -138,10 +141,10 @@
 	   localStorage.getItem("echoPoint") == "true" &&
 	   localStorage.getItem("cahill") == "true")
 	{
-                document.getElementById('final0').style.display = 'block';
+                document.getElementById('final1').style.display = 'block';
 		openPopup();
 	}
-				document.querySelector('.link-cahill').classList.add('correct-link'); //Green Checkmark
+				document.querySelector('.link-final0').classList.add('correct-link'); //Green Checkmark
 				//Check if conditions for dark mode are met
 				if (localStorage.getItem("ww1") === "true" &&
 				    localStorage.getItem("ww2") === "true" &&
@@ -171,16 +174,14 @@
 	
 	// Check if question answered already
 	document.addEventListener('DOMContentLoaded', function() {
-    if (localStorage.getItem("cahill") === "true") {
+    if (localStorage.getItem("final0") === "true") {
         feedbackMessage.innerHTML = correctMessage;
     }
 	});
 	
-        if(localStorage.getItem("elizabeth") == "true" &&
-	   localStorage.getItem("echoPoint") == "true" &&
-	   localStorage.getItem("cahill") == "true")
+        if(localStorage.getItem("final0") == "true")
 	{
-                document.getElementById('final0').style.display = 'block';
+                document.getElementById('final1').style.display = 'block';
 		
 	}
 	//Hamburger Menu

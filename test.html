@@ -1,1 +1,138 @@
 
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scavenger Hunt</title>
+	<link id="originalStylesheet" rel="stylesheet" type="text/css" href="styles.css">
+	<link id="darkModeStylesheet" rel="stylesheet" type="text/css" href="dark.css" disabled>
+</head>
+<body>
+
+<div id="page-container">
+	<div class="main-content">
+		<button id="menu-toggle" class="hamburger-menu">
+			&#9776; Menu
+		</button>
+		<div class="menu">
+			<div class="menu-item">
+				<a href="/index.html" class="menu-link">Start</a>
+			</div>
+			<div class="menu-item">
+				<a href="#" class="menu-link">Sydney</a>
+				<div class="submenu">
+					<a href="/wwInfo.html">Writers Walk Info</a>
+					<a href="/ww1.html" class="link-ww1">Writers Walk 1</a>
+					<a href="/ww2.html" class="link-ww2">Writers Walk 2</a>
+					<a href="/ww3.html" class="link-ww3">Writers Walk 3</a>
+					<a href="/ww4.html" class="link-ww4">Writers Walk 4</a>
+					<a href="/ww5.html" class="link-ww5">Writers Walk 5</a>
+					<a href="/observatory.html" class="locked-link link-observatory">Observatory Hill</a>
+					<a href="/opera.html" class="locked-link link-opera">Sydney Opera House</a>
+					<a href="/botanic.html" class="locked-link link-botanic">Royal Botanic Gardens</a>
+					<a href="/pet.html" class="locked-link link-pet">Flinder's Pet</a>
+					<a href="/hyde.html" class="locked-link link-hyde">Hyde Park</a>
+					<a href="/rocks.html" class="locked-link link-rocks">The Rocks</a>
+					<a href="/manly.html" class="locked-link link-manly">Manly Cove</a>
+				</div>
+			</div>
+
+			<div class="menu-item">
+				<a href="#" class="menu-link">Blue Mountains</a>
+				<div class="submenu">
+					<a href="/echoPoint.html" class="locked-link link-echoPoint">Echo Point</a>
+					<a href="/elizabeth.html" class="locked-link link-elizabeth">Queen Elizabeth Lookout</a>
+					<a href="/cahill.html" class="locked-link link-cahill">Cahill's Lookout</a>
+				</div>
+			</div>
+			<div class="menu-item" id="final0" style="display:block;">
+                                <a href="/final0.html" class="menu-link link-final0">The Bench</a>
+                        </div>
+			<div class="menu-item" id="final1" style="display:none;">
+                                <a href="/final1.html" class="menu-link link-final1">The Fountain</a>
+                        </div>
+			<div class="menu-item" id="final2" style="display:none;">
+                                <a href="/final2.html" class="menu-link link-final2">The Falls</a>
+                        </div>
+			<div class="menu-item">
+				<a href="/solve.html" class="menu-link">Final Question</a>
+			</div>
+		</div>
+
+		<div class="content-wrap">
+		 <h1>Test</h1> <!-- XXX --> 
+			<!-- Bild für die Frage -->
+
+
+      
+			<button type="ww1">ww1</button>
+      <button type="ww2">ww2</button>
+      <button type="ww3">ww3</button>
+			<form id="quizForm">
+				<input type="text" id="answer" placeholder="Your answer">
+				<button type="submit">Send</button>
+				<div id="feedbackMessage" style="color: green; margin-top: 10px;"></div>
+			</form>
+		</div>
+	</div>
+		
+
+	<!-- Der Footer -->
+	<div class="footer">
+		<a href="#">About us</a>
+		<a href="#">Destinations</a>
+		<a href="#">Travel Tips</a>
+		<a href="#">Contact us</a>
+		<a href="/credits.html">Image Credits</a>
+		<a href="#">Terms and Conditions</a>
+	</div>
+</div>
+<script>
+
+	
+	//Catch Submit (instead of reloading page)
+	document.getElementById('quizForm').addEventListener('submit', function(event) {
+		event.preventDefault();  // Verhindert das Neuladen der Seite
+		localStorage.setItem("ww1","true);  // Ruft deine Überprüfungsfunktion auf
+	});
+	
+
+	//Hamburger Menu
+	document.addEventListener('DOMContentLoaded', function() 
+	{
+		var menuToggle = document.getElementById('menu-toggle');
+		var menu = document.querySelector('.menu');
+		
+		if (menuToggle) 
+		{
+			menuToggle.addEventListener('click', function() 
+			{
+				if (menu.style.display === 'none' || menu.style.display === '') {
+					menu.style.display = 'block';
+				} else {
+					menu.style.display = 'none';
+				}
+			});
+		}
+	});
+	
+	
+	//Dark Mode check
+	document.addEventListener('DOMContentLoaded', function() {
+		if (localStorage.getItem("dark") === "true") {
+			// Aktiviere die darkmode.css Datei.
+			document.getElementById('darkModeStylesheet').removeAttribute('disabled');
+			
+			// Optional: Deaktiviere die ursprüngliche CSS-Datei, falls notwendig.
+			 document.getElementById('originalStylesheet').setAttribute('disabled', true);
+		}
+	});
+	
+	//Color 
+</script>
+
+
+</body>
+</html>

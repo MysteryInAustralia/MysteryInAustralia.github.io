@@ -98,7 +98,7 @@
 	</div>
 </div>
 <script>
-	var correctMessage = "Correct! Well done! <br>"; //XXX
+	var correctMessage = "Correct! Well done! <br>Go back to the headquarter now to decipher the final question"; //XXX
 	var correctAnswer = "1884"; //XXX
 
 	document.body.classList.remove("transition-background");
@@ -136,7 +136,7 @@
         var userAnswer = document.getElementById("answer").value.toLowerCase();
 		
         if(userAnswer === correctAnswer) {
-		document.getElementById('final2').style.display = 'block';
+		//document.getElementById('final2').style.display = 'block';
 			feedbackMessage.innerHTML = correctMessage;
 			if (localStorage.getItem("final1") !== "true") {
 				localStorage.setItem("final1", "true");
@@ -173,7 +173,7 @@
 	document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem("final1") === "true") {
         feedbackMessage.innerHTML = correctMessage;
-	document.getElementById('final2').style.display = 'block';   
+	//document.getElementById('final2').style.display = 'block';   
     }
 	});
 

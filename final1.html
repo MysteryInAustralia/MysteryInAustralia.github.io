@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -45,21 +46,29 @@
 					<a href="/cahill.html" class="locked-link link-cahill">Cahill's Lookout</a>
 				</div>
 			</div>
-			
+			<div class="menu-item" id="final0" style="display:block;">
+                                <a href="/final0.html" class="menu-link link-final0">The Bench</a>
+                        </div>
+			<div class="menu-item" id="final1" style="display:none;">
+                                <a href="/final1.html" class="menu-link link-final1">The Fountain</a>
+                        </div>
+      <div class="menu-item" id="final2" style="display:none;">
+                                <a href="/final2.html" class="menu-link link-final2">The Falls</a>
+                        </div>
 			<div class="menu-item">
 				<a href="/solve.html" class="menu-link">Final Question</a>
 			</div>
 		</div>
 
 		<div class="content-wrap">
-		 <h1>The fountain</h1> <!-- XXX --> 
+		 <h1>The Fountain</h1> <!-- XXX --> 
 			<!-- Bild für die Frage -->
 			<img src="pic/questionMark.jpg" alt="image" class="question-image" id="fullscreenImage"> <!-- XXX --> 
 			<p class="image-credit">[Ref:015]</p> <!-- XXX -->
 			
 			<!-- Koordinatenbox -->
 			<div class="coords-box">
-				Coordinates: -30.454104, 152.896663 <a href="https://www.google.com/maps/search/?api=1&query=-30.454104,152.896663" target="_blank">Open in Google Maps</a> <!-- XXX --> 
+				Coordinates: -30.454104, 152.896663<a href="https://www.google.com/maps/search/?api=1&query=-30.454104,152.896663" target="_blank">Open in Google Maps</a> <!-- XXX --> 
 			</div>
 			
 				<!-- Frage -->  
@@ -127,6 +136,7 @@
         var userAnswer = document.getElementById("answer").value.toLowerCase();
 		
         if(userAnswer === correctAnswer) {
+		document.getElementById('final2').style.display = 'block';
 			feedbackMessage.innerHTML = correctMessage;
 			if (localStorage.getItem("final1") !== "true") {
 				localStorage.setItem("final1", "true");
@@ -146,12 +156,10 @@
 						//Transition to Black
 						document.body.style.transition = "background-color 6s";
 						
-						document.getElementById("hashNotification").style.display = "block"; // Zeigt die # Zeichen an
+						 // Zeigt die # Zeichen an
 						
 						// Optional: Nach ein paar Sekunden ausblenden
-						setTimeout(function() {
-							document.getElementById("hashNotification").style.display = "none";
-						}, 3000); // 3000 Millisekunden = 3 Sekunden
+						 // 3000 Millisekunden = 3 Sekunden
 						
 						
 						}
@@ -165,6 +173,7 @@
 	document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem("final1") === "true") {
         feedbackMessage.innerHTML = correctMessage;
+	document.getElementById('final2').style.display = 'block';   
     }
 	});
 
@@ -259,6 +268,14 @@
 	if (localStorage.getItem("cahill") === "true")
 	{
 		document.querySelector('.link-cahill').classList.add('correct-link'); //Green Checkmark
+	}
+	if (localStorage.getItem("final0") === "true")
+	{
+		document.querySelector('.link-final0').classList.add('correct-link'); //Green Checkmark
+	}
+	if (localStorage.getItem("final1") === "true")
+	{
+		document.querySelector('.link-final1').classList.add('correct-link'); //Green Checkmark
 	}
 </script>
 

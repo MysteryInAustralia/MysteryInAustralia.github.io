@@ -52,26 +52,29 @@
 			<div class="menu-item" id="final1" style="display:none;">
                                 <a href="/final1.html" class="menu-link link-final1">The Fountain</a>
                         </div>
+			<div class="menu-item" id="final2" style="display:none;">
+                                <a href="/final2.html" class="menu-link link-final2">The Falls</a>
+                        </div>
 			<div class="menu-item">
 				<a href="/solve.html" class="menu-link">Final Question</a>
 			</div>
 		</div>
 
 		<div class="content-wrap">
-		 <h1>The bench</h1> <!-- XXX --> 
+		 <h1>The Falls</h1> <!-- XXX --> 
 			<!-- Bild für die Frage -->
 			<img src="pic/questionMark.jpg" alt="image" class="question-image" id="fullscreenImage"> <!-- XXX --> 
 			<p class="image-credit">[Ref:015]</p> <!-- XXX -->
 			
 			<!-- Koordinatenbox -->
 			<div class="coords-box">
-				Coordinates: -31.475648, 152.937366 <a href="https://www.google.com/maps/search/?api=1&query=-31.475648,152.937366" target="_blank">Open in Google Maps</a> <!-- XXX --> 
+				Coordinates: -28.612515, 153.390143 <a href="https://www.google.com/maps/search/?api=1&query=-28.612515,153.390143" target="_blank">Open in Google Maps</a> <!-- XXX --> 
 			</div>
 			
 				<!-- Frage -->  
 			<p class="question-text"> 
-				Do you see the bench near the lighthouse?<br> <!-- XXX --> 
-				What is the full name of the person it was dedicated to?
+				Do you see the falls here?<br> <!-- XXX --> 
+				Find the plaque where it tells their height in meters. 
 			</p>
 	
 			<!-- Ihr Formular -->
@@ -96,7 +99,7 @@
 </div>
 <script>
 	var correctMessage = "Correct! Well done! <br>"; //XXX
-	var correctAnswer = "bill banks"; //XXX
+	var correctAnswer = "100"; //XXX
 
 	document.body.classList.remove("transition-background");
 
@@ -135,9 +138,9 @@
         if(userAnswer === correctAnswer) {
 		document.getElementById('final1').style.display = 'block';
 			feedbackMessage.innerHTML = correctMessage;
-			if (localStorage.getItem("final0") !== "true") {
-				localStorage.setItem("final0", "true");
-				document.querySelector('.link-final0').classList.add('correct-link'); //Green Checkmark
+			if (localStorage.getItem("final2") !== "true") {
+				localStorage.setItem("final2", "true");
+				document.querySelector('.link-final2').classList.add('correct-link'); //Green Checkmark
 				//Check if conditions for dark mode are met
 				if (localStorage.getItem("ww1") === "true" &&
 				    localStorage.getItem("ww2") === "true" &&
@@ -172,7 +175,7 @@
 	document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem("final0") === "true") {
         feedbackMessage.innerHTML = correctMessage;
-	document.getElementById('final1').style.display = 'block';   
+	document.getElementById('final0').style.display = 'block';   
     }
 	});
 
@@ -275,6 +278,10 @@
 	if (localStorage.getItem("final1") === "true")
 	{
 		document.querySelector('.link-final1').classList.add('correct-link'); //Green Checkmark
+	}
+	if (localStorage.getItem("final2") === "true")
+	{
+		document.querySelector('.link-final2').classList.add('correct-link'); //Green Checkmark
 	}
 </script>
 
